@@ -1,5 +1,5 @@
 {
-  "name": "knockout-wrap",
+  "name": "knockout.wrap",
   "version": "1.0.0",
   "description": "Wrap a function and notify any subscribers when any observables inside have changed",
   "main": "knockout.wrap.js",
