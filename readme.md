@@ -27,7 +27,6 @@ a(3);     // -> time to update
 
 // Don't call expensive operation unless explicitly called
 wrapped() // -> 5
-
 ```
 
 ## About
