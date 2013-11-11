@@ -1,14 +1,14 @@
 {
-  "name": "knockout-wrapper",
+  "name": "knockout-wrap",
   "version": "1.0.0",
   "description": "Wrap a function and notify any subscribers when any observables inside have changed",
-  "main": "knockout.wrapper.js",
+  "main": "knockout.wrap.js",
   "scripts": {
     "test": "grunt test"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/timhall/knockout-wrapper.git"
+    "url": "https://github.com/timhall/knockout.wrap.git"
   },
   "keywords": [
     "knockout",
@@ -19,7 +19,7 @@
   "author": "Tim Hall",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/timhall/knockout-wrapper/issues"
+    "url": "https://github.com/timhall/knockout.wrap/issues"
   },
   "devDependencies": {
     "grunt": "~0.4.1",

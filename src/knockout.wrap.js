@@ -1,22 +1,7 @@
-// knockout.wrapper.js - Watch observables inside of functions for knockout.js
-// (c) Tim Hall - https://github.com/timhall/knockout.wrapper - License: MIT
-
-(function (root, factory) {
-  if (typeof exports === 'object') {
-    module.exports = factory(require('knockout'));
-  } else if (typeof define === 'function' && define.amd) {
-    define(['knockout'], factory);
-  } else {
-    factory(root.ko);
-  }
-}(this, function (ko) {
-  'use strict';
-  if (!ko) return;
-
 /**
- * knockout.wrapper
+ * knockout.wrap
  * 
- * Get a wrapped version of the specified function
+ * Wrap the specified function
  * and notify any subscribers when any observables inside have changed
  * 
  * Basically a ko.computed that doesn't actually calculate on change
@@ -24,7 +9,7 @@
  * Useful for expensive functions that only want to know if they should be
  * re-evaluated on change without actually re-evaluating
  *
- * var wrapped = ko.wrapper(function() { somethingExpensive(observable()); });
+ * var wrapped = ko.wrap(function() { somethingExpensive(observable()); });
  * wrapped.subscribe(function() {
  *     // The dependencies have updated,
  *     // do something if you want to
@@ -35,7 +20,7 @@
  * @param {Function} fn function to watch
  * @param {Varies} [context]
  */
-var wrapper = ko.wrapper = function (fn, context) {
+ko.wrap = function (fn, context) {
   if (typeof fn !== 'function') {
     throw new Error('Pass a function to wrap');
   }
@@ -83,7 +68,7 @@ var watcher = function (callback, context) {
   
   context = context || this;
   if (typeof callback !== "function") {
-    throw new Error("knockout.wrapper: watcher() requires a function to watch");
+    throw new Error("knockout.wrap: watcher() requires a function to watch");
   }
 
   function watcher() {}
@@ -156,6 +141,3 @@ var watcher = function (callback, context) {
   ko.dependencyDetection.ignore = 
     getMethodByNameOrSignature(ko.dependencyDetection, 'ignore', '.pop()}}');
 }());
-
-  return ko.wrapper;
-}));

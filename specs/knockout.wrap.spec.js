@@ -1,4 +1,4 @@
-describe('knockout.wrapper', function () {
+describe('knockout.wrap', function () {
   var spec = this;
 
   beforeEach(function () {
@@ -12,7 +12,7 @@ describe('knockout.wrapper', function () {
   });
 
   it('should return result of inner function', function () {
-    var wrapped = ko.wrapper(function () {
+    var wrapped = ko.wrap(function () {
       return 2 + 2;
     });
 
@@ -20,7 +20,7 @@ describe('knockout.wrapper', function () {
   });
 
   it('should pass arguments into inner function', function () {
-    var wrapped = ko.wrapper(function (a, b) {
+    var wrapped = ko.wrap(function (a, b) {
       return a + b;
     });
 
@@ -34,13 +34,13 @@ describe('knockout.wrapper', function () {
         return this.value;
       }
     };
-    var wrapped = ko.wrapper(test.result, test);
+    var wrapped = ko.wrap(test.result, test);
 
     expect(wrapped()).toEqual(test.value);
   });
 
   it('should watch function with observables inside for changes', function () {
-    var wrapped = ko.wrapper(spec.fn);
+    var wrapped = ko.wrap(spec.fn);
     var spy = jasmine.createSpy('watch.obs');
     wrapped.subscribe(spy);
 
@@ -52,7 +52,7 @@ describe('knockout.wrapper', function () {
   });
 
   it('should not update if observable inside function doesn\'t change', function () {
-    var wrapped = ko.wrapper(spec.fn);
+    var wrapped = ko.wrap(spec.fn);
     var spy = jasmine.createSpy('watch.obs');
     wrapped.subscribe(spy);
 
@@ -64,7 +64,7 @@ describe('knockout.wrapper', function () {
   });
 
   it('should not update until wrapped function is initially called', function () {
-    var wrapped = ko.wrapper(spec.fn);
+    var wrapped = ko.wrap(spec.fn);
     var spy = jasmine.createSpy('watch.obs');
     wrapped.subscribe(spy);
 
@@ -78,7 +78,7 @@ describe('knockout.wrapper', function () {
   });
 
   it('should only call wrapped function explicitly', function () {
-    var wrapped = ko.wrapper(spec.fn);
+    var wrapped = ko.wrap(spec.fn);
 
     wrapped();
     expect(spec.called).toEqual(1);

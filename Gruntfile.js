@@ -2,14 +2,14 @@ module.exports = function(grunt) {
   grunt.initConfig({
     meta: {
       banner: 
-        '// knockout.wrapper.js - Watch observables inside of functions for knockout.js\n' +
-        '// (c) Tim Hall - https://github.com/timhall/knockout.wrapper - License: MIT\n' +
+        '// knockout.wrap.js - Watch observables inside of functions for knockout.js\n' +
+        '// (c) Tim Hall - https://github.com/timhall/knockout.wrap - License: MIT\n' +
         '\n'
     },
     preprocess: {
       build: {
         files: {
-          'knockout.wrapper.js': 'src/build/knockout.wrapper.js'
+          'knockout.wrap.js': 'src/build/knockout.wrap.js'
         }
       }
     },
@@ -18,8 +18,8 @@ module.exports = function(grunt) {
         banner: '<%= meta.banner %>'
       },
       build: {
-        src: ['knockout.wrapper.js'],
-        dest: 'knockout.wrapper.js'
+        src: ['knockout.wrap.js'],
+        dest: 'knockout.wrap.js'
       }
     },
     uglify: {
@@ -27,8 +27,8 @@ module.exports = function(grunt) {
         banner: '<%= meta.banner %>'
       },
       build: {
-        src: ['knockout.wrapper.js'],
-        dest: 'knockout.wrapper.min.js'
+        src: ['knockout.wrap.js'],
+        dest: 'knockout.wrap.min.js'
       }
     },
     jshint: {
@@ -36,7 +36,7 @@ module.exports = function(grunt) {
         jshintrc: '.jshintrc'
       },
       src: ['src/*.js', 'specs/*.js'],
-      build: ['knockout.wrapper.js']
+      build: ['knockout.wrap.js']
     },
     jasmine: {
       options: {
@@ -44,10 +44,10 @@ module.exports = function(grunt) {
         helpers: [],
         vendor: ['node_modules/knockout/build/output/knockout-latest.debug.js']
       },
-      src: ['src/knockout.wrapper.js']
+      src: ['src/knockout.wrap.js']
     },
     watch: {
-      files: ['src/*.js', 'specs/*.js', 'src/build/knockout.wrapper.js', 'Gruntfile.js'],
+      files: ['src/*.js', 'specs/*.js', 'src/build/knockout.wrap.js', 'Gruntfile.js'],
       tasks: ['build', 'test'],
       interupt: true
     }

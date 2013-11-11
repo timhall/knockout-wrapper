@@ -10,6 +10,6 @@
   'use strict';
   if (!ko) return;
 
-// @include ../knockout.wrapper.js
-  return ko.wrapper;
+// @include ../knockout.wrap.js
+  return ko.wrap;
 }));

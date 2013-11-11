@@ -1,4 +1,4 @@
-# knockout-wrapper
+# knockout.wrap
 
 Wrap a function and notify any subscribers when any observables inside have changed.
 
@@ -14,7 +14,7 @@ function expensiveOperation() {
   console.log(a() + b());
 }
 
-var wrapped = ko.wrapper(expensiveOperation);
+var wrapped = ko.wrap(expensiveOperation);
 wrapped.subscribe(function() {
   console.log('time to update');
 });
