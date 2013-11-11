@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>knockout.collection - Spec Runner</title>
+
+    <link rel="stylesheet" href="content/jasmine.css" type="text/css" media="screen" />
+
+    <script src="content/jasmine.js"></script>
+    <script src="content/jasmine.html.js"></script>
+
+    <!-- Dependencies -->
+    <script src="../node_modules/knockout/build/output/knockout-latest.debug.js"></script>
+
+    <!-- src and spec -->
+    <script src="../src/knockout.wrap.js"></script>
+    <script src="knockout.wrap.spec.js"></script>
+
+    <script type="text/javascript">
+        var jasmineEnv = jasmine.getEnv();
+        jasmineEnv.updateInterval = 1000;
+
+        var htmlReporter = new jasmine.HtmlReporter();
+
+        jasmineEnv.addReporter(htmlReporter);
+
+        jasmineEnv.specFilter = function (spec) {
+            return htmlReporter.specFilter(spec);
+        };
+
+        var currentWindowOnload = window.onload;
+
+        window.onload = function () {
+            if (currentWindowOnload) {
+                currentWindowOnload();
+            }
+            execJasmine();
+        };
+
+        function execJasmine() {
+            jasmineEnv.execute();
+        }
+    </script>
+</head>
+
+<body></body>
+</html>
+
