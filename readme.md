@@ -1,4 +1,4 @@
-# knockout.wrapper
+# knockout-wrapper
 
 Wrap a function and notify any subscribers when any observables inside have changed.
 
